@@ -12,6 +12,12 @@ using TMPro;
 public class SetText : UdonSharpBehaviour
 {
     [SerializeField] private TMP_Text text;
+    [UdonSynced, FieldChangeCallback(nameof(SyncedStr))] private string bSyncedStr;
+    public string SyncedStr
+    {
+        set { bSyncedStr = value; TextChanged(); }
+        get => bSyncedStr;
+    }
     void Start()
     {
         text.text = "";
@@ -19,6 +25,17 @@ public class SetText : UdonSharpBehaviour
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
-        text.text = "Hello, " + player.displayName + "! \r\n";
+        if (Networking.LocalPlayer.IsOwner(this.gameObject))
+        {
+            SyncedStr += "Hello, " + player.displayName + "! \r\n";
+            RequestSerialization();
+        }
+    }
+
+
+    private void TextChanged()
+    {
+        Debug.Log("HogeChanged");
+        text.text = SyncedStr;
     }
 }
