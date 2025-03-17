@@ -8,12 +8,12 @@ using VRC.SDKBase;
 using VRC.Udon;
 using TMPro;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class SetText : UdonSharpBehaviour
 {
-    private TMP_Text text;
+    [SerializeField] private TMP_Text text;
     void Start()
     {
-        text = GameObject.Find("Content").GetComponent<TMP_Text>();
         text.text = "";
     }
 
