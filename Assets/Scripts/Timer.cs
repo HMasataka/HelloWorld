@@ -6,7 +6,9 @@ using VRC.Udon;
 public class Timer : UdonSharpBehaviour
 {
     private bool IsTimerRunning = false;
+    private bool IsReset = false;
     private float timer = 0f;
+
     void Update()
     {
         if (this.IsTimerRunning)
@@ -32,6 +34,7 @@ public class Timer : UdonSharpBehaviour
 
     public void Run()
     {
+        if (IsReset) this.timer = 0f;
         if (IsTimerRunning) return;
         IsTimerRunning = true;
     }
@@ -45,7 +48,7 @@ public class Timer : UdonSharpBehaviour
     public void Stop()
     {
         if (!IsTimerRunning) return;
-        this.timer = 0f;
+        IsReset = true;
         IsTimerRunning = false;
     }
 }
