@@ -2597,9 +2597,9 @@ GameObject:
   - component: {fileID: 1180930534}
   - component: {fileID: 1180930533}
   - component: {fileID: 1180930532}
-  - component: {fileID: 1180930539}
   - component: {fileID: 1180930538}
   - component: {fileID: 1180930537}
+  - component: {fileID: 1180930539}
   - component: {fileID: 1180930536}
   m_Layer: 0
   m_Name: LongPress
@@ -2732,9 +2732,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d59636294771cc45a6fed2e58cbdbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DisableInteractive>k__BackingField: 0
+  <InteractionText>k__BackingField: 
   serializationData:
     SerializedFormat: 2
-    SerializedBytes: 
+    SerializedBytes: []
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2742,6 +2744,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1180930536}
+  _backingUdonBehaviourDump: {fileID: 1180930536}
 --- !u!114 &1180930538
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2791,7 +2794,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1180930538}
   threshold: 1
-  eventTrigger: {fileID: 0}
+  eventTrigger: {fileID: 1180930539}
   eventNameOnLongPress: OnLongPress
   eventNameOnRelease: OnRelease
 --- !u!1 &1188415009
@@ -4318,6 +4321,11 @@ MonoBehaviour:
   - gameObject: {fileID: 1757116153}
     ID: 23
     SerializedTypeNames:
+    - VRC.Udon.UdonBehaviour
+  - gameObject: {fileID: 1180930531}
+    ID: 24
+    SerializedTypeNames:
+    - VRC.Udon.UdonBehaviour
     - VRC.Udon.UdonBehaviour
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}
   portraitCameraRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
